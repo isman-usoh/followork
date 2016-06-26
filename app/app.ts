@@ -4,6 +4,7 @@ import { StatusBar } from "ionic-native";
 
 import { Page1 } from "./pages/page1/page1";
 import { Page2 } from "./pages/page2/page2";
+import AppConfig from "./appConfig";
 
 @Component({
   templateUrl: "build/app.html"
@@ -41,4 +42,6 @@ class MyApp {
   }
 }
 
-ionicBootstrap(MyApp);
+ionicBootstrap(MyApp, [], {
+  prodMode: AppConfig.prodMode
+});

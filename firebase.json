@@ -3,7 +3,7 @@
     "rules": "config/database.rules.json"
   },
   "hosting": {
-    "public": "www",
+    "public": "platforms/browser/www",
     "rewrites": [
       {
         "source": "**",
