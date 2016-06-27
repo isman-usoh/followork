@@ -2,6 +2,7 @@
   "name": "ionic2-firebase",
   "dependencies": {},
   "globalDependencies": {
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504"
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
+    "firebase": "github:suhdev/firebase-3-typescript/firebase.d.ts"
   }
 }
