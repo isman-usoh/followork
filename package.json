@@ -31,6 +31,11 @@
   },
   "name": "ionic2-firebase",
   "description": "ionic2-firebase: An Ionic project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isman-usoh/ionic2-firebase.git"
+  },
+  "license": "MIT",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
