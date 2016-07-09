@@ -1,47 +1,66 @@
 import { Component, ViewChild } from "@angular/core";
-import { App, ionicBootstrap, Platform, Nav } from "ionic-angular";
+import { App, ionicBootstrap, Platform, Nav, Events } from "ionic-angular";
 import { StatusBar } from "ionic-native";
 
-import { Page1 } from "./pages/page1/page1";
-import { Page2 } from "./pages/page2/page2";
-import AppConfig from "./appConfig";
+import { LoginPage } from "./pages/login/login";
+import { RegisterPage } from "./pages/register/register";
+import { TaskPage } from "./pages/task/Task";
+import { MessagePage } from "./pages/message/message";
+import { TeamPage } from "./pages/team/team";
+
+import AppConfig from "./app-config";
+
+import {AuthProvider} from "./providers/auth";
+import {FirebaseProvider} from "./providers/firebase";
 
 @Component({
-  templateUrl: "build/app.html"
+    templateUrl: "build/app.html"
 })
 class MyApp {
-  @ViewChild(Nav) nav: Nav;
+    @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+    rootPage: any;
 
-  pages: Array<{title: string, component: any}>;
+    menus: Array<{ title: string, icon: string, component: any }>;
 
-  constructor(private platform: Platform) {
-    this.initializeApp();
+    constructor(
+        private platform: Platform,
+        private auth: AuthProvider,
+        private event: Events) {
+        this.initializeApp();
+        this.loadMenu();
+    }
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: "Page uno", component: Page1 },
-      { title: "Page dos", component: Page2 }
-    ];
+    initializeApp() {
+        this.platform.ready().then(() => {
+            StatusBar.styleDefault();
+        });
+    }
+    loadMenu() {
+        if (!this.auth.isAuth()) {
+            this.rootPage = TaskPage;
+            this.menus = [
+                { title: "งาน", icon: "calendar", component: TaskPage },
+                { title: "ข้อความ", icon: "chatboxes", component: MessagePage },
+                { title: "ทีมงาน", icon: "people", component: TeamPage }
+            ];
+        } else {
+            this.rootPage = LoginPage;
+            this.menus = [
+                { title: "ล็อกอิน", icon: "calendar", component: LoginPage },
+                { title: "ลงทะเบียน", icon: "chatboxes", component: RegisterPage }
+            ];
+        }
+    }
 
-  }
+    onMenuClick(menu) {
+        this.nav.setRoot(menu.component);
+    }
+    onSignOutClick() {
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-    });
-  }
-
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn"t want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-  }
+    }
 }
 
-ionicBootstrap(MyApp, [], {
-  prodMode: AppConfig.prodMode
+ionicBootstrap(MyApp, [FirebaseProvider, AuthProvider], {
+    prodMode: AppConfig.prodMode
 });
