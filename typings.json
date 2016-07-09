@@ -5,5 +5,8 @@
   "globalDependencies": {
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
     "firebase": "github:suhdev/firebase-3-typescript/firebase.d.ts"
+  },
+  "globalDevDependencies": {
+    "faker": "registry:dt/faker#0.0.0+20160406111603"
   }
 }
