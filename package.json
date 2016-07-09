@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "del": "2.2.0",
+    "faker": "^3.1.0",
     "gulp": "3.9.1",
     "gulp-watch": "4.3.5",
     "ionic-gulp-browserify-typescript": "2.0.0",
@@ -30,7 +31,7 @@
   },
   "name": "followork",
   "description": "followork: An Ionic project",
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/isman-usoh/ionic2-firebase.git"
   },
