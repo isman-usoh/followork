@@ -1,6 +1,6 @@
 {
   "name": "followork",
-  "app_id": "",
+  "app_id": "com.github.isman.followork",
   "v2": true,
   "typescript": true
 }
