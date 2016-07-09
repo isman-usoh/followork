@@ -1,0 +1,56 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>ล็อกอิน</ion-title>
+</ion-navbar>
+
+<ion-content padding>
+
+  <h1 text-center class="top-margin">FolloWork</h1>
+
+  <form [ngFormModel]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <ion-item>
+      <ion-label stacked>อีเมล์</ion-label>
+      <ion-input type="text" ngControl="email"></ion-input>
+    </ion-item>
+
+    <div padding class="no-top-padding small-bottom-padding" *ngIf="!email.valid && email.touched">
+      <small *ngIf="email.errors.required" danger>จำเป็น</small>
+      <small *ngIf="email.errors.pattern" danger>อีเมล์ไม่ถูกต้อง</small>
+      <small *ngIf="email.errors.minlength || email.errors.maxlength || email.errors.pattern" danger>ความยาว 6-64 ตัวอักษร</small>
+    </div>
+
+    <ion-item>
+      <ion-label stacked>รหัสผ่าน</ion-label>
+      <ion-input type="password" ngControl="password"></ion-input>
+    </ion-item>
+
+    <div padding class="no-top-padding small-bottom-padding" *ngIf="!password.valid && password.touched">
+      <small *ngIf="password.errors.required" danger>จำเป็น</small>
+      <small *ngIf="password.errors.minlength || password.errors.maxlength" danger>ความยาว 6-24 ตัวอักษร</small>
+    </div>
+
+    <button [disabled]="!loginForm.valid" block class="large-top-margin">
+        <ion-icon name="log-in"></ion-icon> ล็อกอินด้วยอีเมล์
+    </button>
+  </form>
+
+  <div text-center class="large-top-margin">
+    <small>หรือ</small>
+  </div>
+
+  <button block outline class="large-top-margin">
+    <ion-icon name="logo-facebook"></ion-icon> ล็อกอินด้วย Facebook
+  </button>
+
+  <button block outline class="top-margin">
+    <ion-icon name="logo-google"></ion-icon> ล็อกอินด้วย Google
+  </button>
+
+  <br/><br/><br/>
+
+  <p text-center>
+    <span class="font-light">ยังไม่มีบัญชี.</span> <span class="font-bold text-underline">ลงทะเบียนเดี้ยวนี้</span>
+  </p>
+</ion-content>
