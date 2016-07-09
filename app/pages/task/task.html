@@ -1,10 +1,28 @@
-<ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>งาน</ion-title>
-</ion-navbar>
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>งาน</ion-title>
+        <ion-buttons end>
+            <button>
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
 
-<ion-content padding>
-  
+<ion-content>    
+    <ion-card *ngFor="let task of tasks">
+        <ion-card-header>
+            Header        
+        </ion-card-header>
+        <ion-card-content>
+            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+        </ion-card-content>
+    </ion-card>
 </ion-content>
+
+<button fab primary fab-bottom fab-right>
+    <ion-icon name="add"></ion-icon>
+</button>
