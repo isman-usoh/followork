@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "https://raw.githubusercontent.com/suhdev/firebase-3-typescript/master/firebase.d.ts",
-    "raw": "github:suhdev/firebase-3-typescript/firebase.d.ts",
-    "typings": "https://raw.githubusercontent.com/suhdev/firebase-3-typescript/master/firebase.d.ts"
-  }
-}
