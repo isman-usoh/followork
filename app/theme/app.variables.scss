@@ -25,9 +25,19 @@
 // Both iOS and MD colors can be further customized if colors
 // are different per mode.
 
+// .d{
+//   primary:    #387ef5;
+//   secondary:  #32db64;
+//   danger:     #f53d3d;
+//   light:      #f4f4f4;
+//   dark:       #222;
+//   favorite:   #69BB7B;
+// }
+$text-input-md-highlight-color-valid: #009688;
+
 $colors: (
-  primary:    #387ef5,
-  secondary:  #32db64,
+  primary:    #009688,
+  secondary:  #FF4081,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,

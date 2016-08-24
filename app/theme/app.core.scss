@@ -7,8 +7,13 @@
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
 
-@import "app.utils";
+@import "./app.utils.scss";
 
-.button-fab {
-  z-index: 100;
+.item .item-inner {
+    margin-right: 16px;
+    padding-right: 0;
+    border-bottom: 1px solid #c8c7cc;
+}
+.ion-item {
+    background-color: transparent;
 }
